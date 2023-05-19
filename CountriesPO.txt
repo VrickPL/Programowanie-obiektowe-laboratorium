@@ -14,7 +14,7 @@ Chile 10
 China 1440
 Colombia 51
 Croatia 4
-Czech Republic 11
+Czech_Republic 11
 Denmark 6
 Ecuador 18
 Egypt 102
@@ -55,11 +55,11 @@ Poland 38
 Portugal 10
 Qatar 3
 Russia 146
-Saudi Arabia 35
+Saudi_Arabia 35
 Senegal 17
 Singapore 6
-South Africa 59
-South Korea 51
+South_Africa 59
+South_Korea 51
 Spain 47
 Sudan 44
 Sweden 10
