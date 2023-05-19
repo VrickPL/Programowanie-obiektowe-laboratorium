@@ -8,11 +8,6 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         countryImplementing();
 
-        for (int i = 0; i < 75; i++) {
-            System.out.println("Country: " + allCountries.get(i).getCountryName());
-            System.out.printf("Alive: %d people\n", allCountries.get(i).getAlivePeopleAmount());
-            System.out.println("");
-        }
 
 
 
