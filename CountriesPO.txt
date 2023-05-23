@@ -45,7 +45,7 @@ Nepal 29
 Netherlands 17
 Niger 24
 Nigeria 206
-North Korea 26
+North_Korea 26
 Norway 5
 Pakistan 221
 Paraguay 7
