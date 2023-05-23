@@ -24,13 +24,13 @@ public class Main {
             String[] splittedFileLine = fileLine.split(" ");
             country = new Country(splittedFileLine[0], Integer.parseInt(splittedFileLine[1]));
             allCountries.add(country);
-            System.out.println("Country: " + allCountries.get(i).getCountryName());
-            System.out.printf("Alive: %d people\n", allCountries.get(i).getAlivePeopleAmount());
-            System.out.println("");
             while(allCountries.get(i).getCountryName().contains("_")){
                 String[] twoWordCountry = allCountries.get(i).getCountryName().split("_");
                 allCountries.get(i).setCountryName(String.join(" ", twoWordCountry[0], twoWordCountry[1]));
             }
+            System.out.println("Country: " + allCountries.get(i).getCountryName());
+            System.out.printf("Alive: %d people\n", allCountries.get(i).getAlivePeopleAmount());
+            System.out.println("");
             i++;
         }
     }
