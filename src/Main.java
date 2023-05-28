@@ -1,37 +1,27 @@
-import java.io.File;
+import World.World;
+
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static ArrayList<Country> allCountries = new ArrayList<>();
     public static void main(String[] args) throws FileNotFoundException {
-        countryImplementing();
+
+        World world = new World();
+        world.countryImplementing();
+        boolean toContinue = true;
+        Scanner scanner = new Scanner(System.in);
 
 
+        while(toContinue && world.getPeopleAlive()>0 && !world.isVaccineFound()){
+            world.duringThreeMonths();
 
-
-    }
-
-    public static void countryImplementing() throws FileNotFoundException {
-        File file = new File("CountriesPO.txt");
-        Scanner fileScanner = new Scanner(file);
-        Country country;
-
-        int i = 0;
-        while(fileScanner.hasNext()){
-            String fileLine = fileScanner.nextLine();
-            String[] splittedFileLine = fileLine.split(" ");
-            country = new Country(splittedFileLine[0], Integer.parseInt(splittedFileLine[1]));
-            allCountries.add(country);
-            while(allCountries.get(i).getCountryName().contains("_")){
-                String[] twoWordCountry = allCountries.get(i).getCountryName().split("_");
-                allCountries.get(i).setCountryName(String.join(" ", twoWordCountry[0], twoWordCountry[1]));
+            System.out.println(" ");
+            System.out.println("Do you want to continue program?");
+            System.out.println("Press 'y' (yes) or 'n' (no): ");
+            if (!scanner.nextLine().toLowerCase().equals("y")) {
+                toContinue = false;
             }
-            System.out.println("Country: " + allCountries.get(i).getCountryName());
-            System.out.printf("Alive: %d people\n", allCountries.get(i).getAlivePeopleAmount());
-            System.out.println("");
-            i++;
         }
+
     }
 }
