@@ -66,7 +66,7 @@ public class World {
         }
     }
 
-    public void countryImplementing() throws FileNotFoundException {
+    public void creatingListOfCountriesFromTXT() throws FileNotFoundException {
         File file = new File("CountriesPO.txt");
         Scanner fileScanner = new Scanner(file);
         Country country;

@@ -43,7 +43,7 @@ public class RandomEverything {
                 }
                 case 1 -> {
                     ContagiousVirusMutation mutation = new ContagiousVirusMutation(1.3,
-                            0.6, 0.3, 0.8);
+                            0.6, 0.3, 1);
                     return mutation.virusMutation(virus);
                 }
             }

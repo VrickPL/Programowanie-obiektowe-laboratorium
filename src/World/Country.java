@@ -102,7 +102,6 @@ public class Country {
         System.out.printf("Alive - %d people\n", alivePeopleAmount);
         System.out.printf("Died - %d people\n", deadPeopleAmount);
         System.out.printf("Infected - %d people\n", (sickPeopleAmount + infectedPeopleInTransport));
-        //System.out.println("infected in transport " + infectedPeopleInTransport);
     }
     public static boolean isInfectedInCountry(Person person){
         return (person.getCountry().getSickPeopleAmount() > 0);

@@ -11,7 +11,7 @@ public class Main {
 
         World world = new World();
         Report report = new Report();
-        world.countryImplementing();
+        world.creatingListOfCountriesFromTXT();
         Virus virus = creatingVirus();
         Report.printFirstReport(world,virus);
 
