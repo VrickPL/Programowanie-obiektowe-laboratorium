@@ -2,8 +2,8 @@ package World.Virus;
 
 import java.util.Scanner;
 
-public class ImplementingVirus {
-    public static Virus implementingVirus() {
+public class CreatingVirus {
+    public static Virus creatingVirus() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Make your own Virus!");
 
@@ -14,20 +14,20 @@ public class ImplementingVirus {
         System.out.print("Enter: ");
         String whatToDo = scanner.nextLine().toLowerCase();
         if(whatToDo.equals("yes")){
-            return new Virus(1, 1, 1, 1, name);
+            return new Virus(100, 50, 5, 5, name);
         } else if (whatToDo.equals("no")) {
-            System.out.print("Enter time of disease: ");
+            System.out.print("Enter time of disease (days): ");
             int timeOfDisease=Integer.parseInt(dataInput());
-            System.out.print("Enter factor of Contagious: ");
+            System.out.print("Enter factor of Contagious (1 - 10): ");
             double factorOfContagious=Double.parseDouble(dataInput());
-            System.out.print("Enter time of Mutation: ");
+            System.out.print("Enter time of Mutation (days): ");
             double timeOfMutation=Double.parseDouble(dataInput());
-            System.out.print("Enter lethality: ");
+            System.out.print("Enter lethality (1 - 10): ");
             double lethality=Double.parseDouble(dataInput());
             return new Virus(timeOfMutation, timeOfDisease,factorOfContagious,lethality,name);
         } else {
             System.out.println("Wrong string entered. Using default settings.");
-            return new Virus(1, 1, 1, 1, name);
+            return new Virus(100, 50, 5, 5, name);
         }
     }
     private static String dataInput(){
@@ -42,4 +42,3 @@ public class ImplementingVirus {
     }
 
 }
-

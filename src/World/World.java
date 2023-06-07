@@ -5,12 +5,14 @@ import World.Reports.Report;
 import World.Transport.Transport;
 import World.Virus.Virus;
 
-import static World.Transport.isTransport.transport;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+import static World.Transport.Transport.transport;
 
 
 public class World {
@@ -57,7 +59,7 @@ public class World {
             transport(person,world);
         }
 
-       for (Transport transport:transports) {
+        for (Transport transport:transports) {
             if(transport.getTimeOfTravel()==world.dayCounter){
                 people.get(random.nextInt(people.size())).setInfected(true);
             }
@@ -73,17 +75,13 @@ public class World {
         while(fileScanner.hasNext()){
             String fileLine = fileScanner.nextLine();
             String[] splittedFileLine = fileLine.split(" ");
-            country = new Country(splittedFileLine[0], Integer.parseInt(splittedFileLine[1]));//DOPISAĆ DO PLIKU!!!
+            country = new Country(splittedFileLine[0], Integer.parseInt(splittedFileLine[1]));
             allCountries.add(country);
             //creating countries from "country.txt" file
             while(allCountries.get(i).getCountryName().contains("_")){
                 String[] twoWordCountry = allCountries.get(i).getCountryName().split("_");
                 allCountries.get(i).setCountryName(String.join(" ", twoWordCountry[0], twoWordCountry[1]));
             }
-            //NIE WIEM CZY TO WYSWIELTAMY
-//            System.out.println("Country: " + allCountries.get(i).getCountryName());
-//            System.out.printf("Alive: %d people\n", allCountries.get(i).getAlivePeopleAmount());
-//            System.out.println(" ");
             peopleAlive += allCountries.get(i).getAlivePeopleAmount();
 
             //creating people for all countries
@@ -141,9 +139,6 @@ public class World {
     public ArrayList<Country> getAllCountries() {
         return allCountries;
     }
-    public ArrayList<Person> getPeople() {
-        return people;
-    }
 
     public int getThreeMonthsCounter() {
         return threeMonthsCounter;
@@ -161,7 +156,7 @@ public class World {
         if(name.isEmpty() || name.equals("random")) return random.nextInt(allCountries.size());
 
         for (int i = 0; i < allCountries.size(); i++) {
-            if(name.equals(allCountries.get(i).getCountryName())){
+            if(name.equalsIgnoreCase(allCountries.get(i).getCountryName())){
                 return i;
             }
         }

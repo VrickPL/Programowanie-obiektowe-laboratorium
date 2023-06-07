@@ -40,12 +40,13 @@ public class Report {
         }
     }
 
-    public void duringThreeMonths(World world, int dayCounter, Virus virus){
+    public Virus duringThreeMonths(World world, int dayCounter, Virus virus){
         world.setThreeMonthsCounter(world.getThreeMonthsCounter()+1);
         world.setVaccineFound(randomVaccineFound());
-        randomMutation(world,virus);
+        virus = randomMutation(world,virus);
         printInfo(world, dayCounter);
         if(world.getThreeMonthsCounter() % 4 == 0 && world.getThreeMonthsCounter() != 0) world.newYear();
+        return virus;
     }
     public void printInfo(World world, int dayCounter){
         System.out.println("-".repeat(30));
@@ -70,6 +71,24 @@ public class Report {
                 world.getAllCountries().get(i).printDetailInfo();
             }
         }
+    }
+
+    public static void printFirstReport(World world, Virus virus){
+        System.out.println("-".repeat(30));
+        System.out.println("Day: 0" );
+        System.out.println("Amount of people - " + world.getPeopleAlive());
+        System.out.println("Infected people - " + world.getInfectedPeople());
+        System.out.println("-".repeat(30));
+        System.out.println("The Plague begins!");
+        System.out.println("Name of virus: "+virus.nameOfVirus());
+        System.out.println("Starting virus in " + world.firstInfectedPerson());
+        System.out.println("-".repeat(30));
+        System.out.println("Press Enter key to continue...");
+        try {
+            System.in.read();
+        }
+        catch(Exception e)
+        {}
     }
 
 }

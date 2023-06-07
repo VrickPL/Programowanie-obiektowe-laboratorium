@@ -1,10 +1,9 @@
-import World.Reports.FirstReport;
 import World.World;
 import World.Reports.Report;
 import World.Virus.Virus;
 
 import java.io.FileNotFoundException;
-import static World.Virus.ImplementingVirus.implementingVirus;
+import static World.Virus.CreatingVirus.creatingVirus;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
@@ -13,15 +12,15 @@ public class Main {
         World world = new World();
         Report report = new Report();
         world.countryImplementing();
-        Virus virus = implementingVirus();
-        FirstReport.printFirstReport(world,virus);
+        Virus virus = creatingVirus();
+        Report.printFirstReport(world,virus);
 
         do{
             world.setDayCounter(world.getDayCounter()+1);
             world.anotherDay(virus, world, report);
             if (world.getDayCounter() % 90 == 0) {
                 world.setPeople();
-                report.duringThreeMonths(world, world.getDayCounter(),virus);
+                virus = report.duringThreeMonths(world, world.getDayCounter(), virus);
                 toContinue=report.simulationContinue();
                 report.newThreeMonths();
             }

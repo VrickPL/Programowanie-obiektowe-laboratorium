@@ -1,17 +1,36 @@
 package World.Virus;
 
-public class Mutation {
+import static World.RandomEverything.getVaccinePercentageChance;
+import static World.RandomEverything.setVaccinePercentageChance;
 
-    public static Virus virusMutation(Virus oldVirus){
-        System.out.println("Virus mutates");
-        double multiplierOfTimeOfMutation = 1* oldVirus.getTimeOfMutation();
-        double multiplierOfTimeOfDisease = 1* oldVirus.getTimeOfMutation();
-        double multiplierOfFactorOfContagious = 1* oldVirus.getTimeOfMutation();
-        double multiplierOfLethality = 1* oldVirus.getTimeOfMutation();
-        return new Virus(oldVirus.getTimeOfMutation()* multiplierOfTimeOfMutation,
-                oldVirus.getTimeOfDisease()* multiplierOfTimeOfDisease,
-                oldVirus.getFactorOfContagious()* multiplierOfFactorOfContagious,
-                oldVirus.getLethality()*multiplierOfLethality,
-                oldVirus.getNameOfVirus());
+public abstract class Mutation {
+    double multiplierOfTimeOfMutation;
+    double multiplierOfTimeOfDisease;
+    double multiplierOfFactorOfContagious;
+    double multiplierOfLethality;
+
+
+    public Mutation(double multiplierOfTimeOfMutation, double multiplierOfTimeOfDisease, double multiplierOfFactorOfContagious, double multiplierOfLethality) {
+        this.multiplierOfTimeOfMutation = multiplierOfTimeOfMutation;
+        this.multiplierOfTimeOfDisease = multiplierOfTimeOfDisease;
+        this.multiplierOfFactorOfContagious = multiplierOfFactorOfContagious;
+        this.multiplierOfLethality = multiplierOfLethality;
     }
+
+    Virus virusMutation(Virus oldVirus) {
+        printInfo(oldVirus);
+        return null;
+    }
+
+    void newChanceToFindVaccine(double multiplierOfNewVaccine){
+        setVaccinePercentageChance((int) (getVaccinePercentageChance()*multiplierOfNewVaccine));
+    }
+
+
+    void printInfo(Virus virus){
+        System.out.println("VIRUS MUTATED");
+    }
+
+
+
 }
