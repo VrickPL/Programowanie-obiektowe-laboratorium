@@ -1,7 +1,6 @@
 package World;
 import World.Person.Person;
 import static World.Country.isInfectedInCountry;
-
 import World.Transport.Transport;
 import World.Virus.ContagiousVirusMutation;
 import World.Virus.DeadlyVirusMutation;
