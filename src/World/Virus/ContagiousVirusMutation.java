@@ -1,6 +1,6 @@
 package World.Virus;
 
-import static World.RandomEverything.setBoundOfRandomingTravel;
+import static World.AnotherDay.RandomEverything.setBoundOfRandomingTravel;
 
 public class ContagiousVirusMutation extends Mutation {
     public ContagiousVirusMutation(double multiplierOfTimeOfMutation, double multiplierOfTimeOfDisease, double multiplierOfFactorOfContagious, double multiplierOfLethality) {
@@ -32,10 +32,10 @@ public class ContagiousVirusMutation extends Mutation {
         super.printInfo(virus);
         System.out.println("Now the virus is more contagious! People don't want to travel so often.");
         System.out.println("New values of virus:");
-        System.out.println("Time of disease (days): " + virus.timeOfDisease());
-        System.out.println("Factor of Contagious: " + virus.factorOfContagious());
-        System.out.println("Time of Mutation (days): " + virus.timeOfMutation());
-        System.out.println("Lethality: " + virus.lethality());
+        System.out.printf("Time of disease (days): %.2f\n", virus.timeOfDisease());
+        System.out.printf("Factor of Contagious: %.2f\n", virus.factorOfContagious());
+        System.out.printf("Time of Mutation (days): %.2f\n", virus.timeOfMutation());
+        System.out.printf("Lethality: %.2f", virus.lethality());
         System.out.println(" ");
     }
 

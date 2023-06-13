@@ -1,7 +1,7 @@
 package World.Virus;
 
-import static World.RandomEverything.getVaccinePercentageChance;
-import static World.RandomEverything.setVaccinePercentageChance;
+import static World.AnotherDay.RandomEverything.getVaccinePercentageChance;
+import static World.AnotherDay.RandomEverything.setVaccinePercentageChance;
 
 public abstract class Mutation {
     double multiplierOfTimeOfMutation;

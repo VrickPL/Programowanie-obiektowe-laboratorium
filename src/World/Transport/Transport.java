@@ -4,7 +4,7 @@ import World.Country;
 import World.Person.Person;
 import World.World;
 
-import static World.RandomEverything.randomTransport;
+import static World.AnotherDay.RandomEverything.randomTransport;
 
 public class Transport {
     int timeOfTravel;
@@ -20,9 +20,6 @@ public class Transport {
         this.accessibility = accessibility;
         this.destination = destination;
     }
-
-
-
     public void setTimeOfTravel(int timeOfTravel) {
         this.timeOfTravel = timeOfTravel;
     }
@@ -31,21 +28,23 @@ public class Transport {
         return timeOfTravel;
     }
 
-    public static void transport(Person person, World world){
-        if(person.isAlive()){
-            if(person.isInTransport()){
+    public static void transport(Person person, World world) {
+        if (person.isAlive()) {
+            if (person.isInTransport()) {
                 person.setDaysSinceTransport(person.getDaysSinceTransport() + 1);
 
-                if(world.getTransports().get(person.getNumberOfTransport()).getTimeOfTravel() <= person.getDaysSinceTransport()){
+                if (person.getNumberOfTransport() < world.getTransports().size() &&
+                        world.getTransports().get(person.getNumberOfTransport()).getTimeOfTravel() <= person.getDaysSinceTransport()) {
                     person.setInTransport(false);
 
-                    if(person.isInfected()){
+                    if (person.isInfected()) {
                         person.getCountry().endOfTheTransportAndPersonIsSick();
                     }
                 }
+
             } else {
                 Transport newTransport = randomTransport(person, World.getRandomCountry(world));
-                if(newTransport != null){
+                if (newTransport != null) {
                     newTransport.setTimeOfTravel(newTransport.getTimeOfTravel() + world.getDayCounter());
                     world.getTransports().add(newTransport);
                     person.setInTransport(true);
@@ -58,7 +57,7 @@ public class Transport {
 
                     person.setDaysSinceTransport(0);
 
-                    if(person.isInfected()){
+                    if (person.isInfected()) {
                         person.getCountry().someoneIsSickInTransport();
                     }
                 }

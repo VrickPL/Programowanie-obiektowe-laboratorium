@@ -1,12 +1,10 @@
 package World.Reports;
 import World.Virus.Virus;
-import static World.RandomEverything.randomDie;
+
 import World.World;
-import World.Person.Person;
-import static World.RandomEverything.randomGetInfected;
-import static World.RandomEverything.recover;
-import static World.RandomEverything.randomMutation;
-import static World.RandomEverything.randomVaccineFound;
+
+import static World.AnotherDay.RandomEverything.randomMutation;
+import static World.AnotherDay.RandomEverything.randomVaccineFound;
 import java.util.Scanner;
 
 public class Report {
@@ -28,24 +26,13 @@ public class Report {
         System.out.println("Press 'y' (yes) or 'n' (no): ");
         return scanner.nextLine().equalsIgnoreCase("y");
     }
-    public void randomEverything(Virus virus, Person person) {
-        if (randomDie(virus, person)) {
-            deadPeopleDuringThreeMonths++;
-        }
-        if (randomGetInfected(virus, person)) {
-            infectedPeopleDuringThreeMonths++;
-        }
-        if (recover(virus, person)) {
-            recoveredPeopleDuringThreeMonths++;
-        }
-    }
+
 
     public Virus duringThreeMonths(World world, int dayCounter, Virus virus){
         world.setThreeMonthsCounter(world.getThreeMonthsCounter()+1);
         world.setVaccineFound(randomVaccineFound());
         virus = randomMutation(world,virus);
         printInfo(world, dayCounter);
-        if(world.getThreeMonthsCounter() % 4 == 0 && world.getThreeMonthsCounter() != 0) world.newYear();
         return virus;
     }
     public void printInfo(World world, int dayCounter){
@@ -81,7 +68,7 @@ public class Report {
         System.out.println("-".repeat(30));
         System.out.println("The Plague begins!");
         System.out.println("Name of virus: "+virus.nameOfVirus());
-        System.out.println("Starting virus in " + world.firstInfectedPerson());
+        System.out.println("Starting virus in " + world.getOutbreakOfTheEpidemic());
         System.out.println("-".repeat(30));
         System.out.println("Press Enter key to continue...");
         try {
@@ -91,4 +78,27 @@ public class Report {
         {}
     }
 
+    public int getDeadPeopleDuringThreeMonths() {
+        return deadPeopleDuringThreeMonths;
+    }
+
+    public void setDeadPeopleDuringThreeMonths(int deadPeopleDuringThreeMonths) {
+        this.deadPeopleDuringThreeMonths = deadPeopleDuringThreeMonths;
+    }
+
+    public int getInfectedPeopleDuringThreeMonths() {
+        return infectedPeopleDuringThreeMonths;
+    }
+
+    public void setInfectedPeopleDuringThreeMonths(int infectedPeopleDuringThreeMonths) {
+        this.infectedPeopleDuringThreeMonths = infectedPeopleDuringThreeMonths;
+    }
+
+    public int getRecoveredPeopleDuringThreeMonths() {
+        return recoveredPeopleDuringThreeMonths;
+    }
+
+    public void setRecoveredPeopleDuringThreeMonths(int recoveredPeopleDuringThreeMonths) {
+        this.recoveredPeopleDuringThreeMonths = recoveredPeopleDuringThreeMonths;
+    }
 }

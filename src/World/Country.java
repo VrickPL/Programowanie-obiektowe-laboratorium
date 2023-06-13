@@ -23,46 +23,6 @@ public class Country {
         this(countryName,alivePeopleAmount, alivePeopleAmount % 2 == 0, alivePeopleAmount % 3 == 0);
     }
 
-    public void setSickPeopleAmount(int sickPeopleAmount) {
-        this.sickPeopleAmount = sickPeopleAmount;
-    }
-
-    public void setInfectedPeopleInTransport(int infectedPeopleInTransport) {
-        this.infectedPeopleInTransport = infectedPeopleInTransport;
-    }
-
-    public boolean isAirport() {
-        return isAirport;
-    }
-
-    public boolean isHarbor() {
-        return isHarbor;
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public int getAlivePeopleAmount() {
-        return alivePeopleAmount;
-    }
-
-    public int getDeadPeopleAmount() {
-        return deadPeopleAmount;
-    }
-
-    public int getSickPeopleAmount() {
-        return sickPeopleAmount;
-    }
-
-    public int getInfectedPeopleInTransport() {
-        return infectedPeopleInTransport;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
     public void someoneDied() {
         alivePeopleAmount--;
         sickPeopleAmount--;
@@ -102,7 +62,6 @@ public class Country {
         System.out.printf("Alive - %d people\n", alivePeopleAmount);
         System.out.printf("Died - %d people\n", deadPeopleAmount);
         System.out.printf("Infected - %d people\n", (sickPeopleAmount + infectedPeopleInTransport));
-        //System.out.println("infected in transport " + infectedPeopleInTransport);
     }
     public static boolean isInfectedInCountry(Person person){
         return (person.getCountry().getSickPeopleAmount() > 0);
@@ -117,5 +76,44 @@ public class Country {
         if(person.isInfected()){
             sickPeopleAmount--;
         }
+    }
+    public void setSickPeopleAmount(int sickPeopleAmount) {
+        this.sickPeopleAmount = sickPeopleAmount;
+    }
+
+    public void setInfectedPeopleInTransport(int infectedPeopleInTransport) {
+        this.infectedPeopleInTransport = infectedPeopleInTransport;
+    }
+
+    public boolean isAirport() {
+        return isAirport;
+    }
+
+    public boolean isHarbor() {
+        return isHarbor;
+    }
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public int getAlivePeopleAmount() {
+        return alivePeopleAmount;
+    }
+
+    public int getDeadPeopleAmount() {
+        return deadPeopleAmount;
+    }
+
+    public int getSickPeopleAmount() {
+        return sickPeopleAmount;
+    }
+
+    public int getInfectedPeopleInTransport() {
+        return infectedPeopleInTransport;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 }
